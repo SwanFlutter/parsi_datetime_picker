@@ -32,9 +32,12 @@ Future<ParsiDate?> showParsiDatePicker({
   RouteSettings? routeSettings,
   Offset? anchorPoint,
 }) async {
-  assert(!initialDate.isBefore(firstDate), 'initialDate must be on or after firstDate');
-  assert(!initialDate.isAfter(lastDate), 'initialDate must be on or before lastDate');
-  assert(!firstDate.isAfter(lastDate), 'firstDate must be on or before lastDate');
+  assert(!initialDate.isBefore(firstDate),
+      'initialDate must be on or after firstDate');
+  assert(!initialDate.isAfter(lastDate),
+      'initialDate must be on or before lastDate');
+  assert(
+      !firstDate.isAfter(lastDate), 'firstDate must be on or before lastDate');
 
   Widget dialog = ParsiDatePickerDialog(
     initialDate: initialDate,

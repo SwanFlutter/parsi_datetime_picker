@@ -21,7 +21,8 @@ class ParsiDate {
   final int _shamsiMonth;
   final int _shamsiDay;
 
-  ParsiDate._(this._internal, this._shamsiYear, this._shamsiMonth, this._shamsiDay);
+  ParsiDate._(
+      this._internal, this._shamsiYear, this._shamsiMonth, this._shamsiDay);
 
   /// Creates a [ParsiDate] from Jalali (Shamsi) components.
   factory ParsiDate(int year, int month, int day,
@@ -29,8 +30,13 @@ class ParsiDate {
     final imp = ImperialPersianDate.fromShamsi(year, month, day);
     // Reconstruct with time if needed
     final withTime = ImperialPersianDate(
-      imp.year, imp.month, imp.day,
-      hour: hour, minute: minute, second: second, millisecond: millisecond,
+      imp.year,
+      imp.month,
+      imp.day,
+      hour: hour,
+      minute: minute,
+      second: second,
+      millisecond: millisecond,
     );
     return ParsiDate._(withTime, year, month, day);
   }
@@ -95,7 +101,8 @@ class ParsiDate {
   }
 
   /// Add years/months/days returning a new [ParsiDate].
-  ParsiDate addDays(int days) => ParsiDate.fromDateTime(toDateTime().add(Duration(days: days)));
+  ParsiDate addDays(int days) =>
+      ParsiDate.fromDateTime(toDateTime().add(Duration(days: days)));
 
   ParsiDate addMonths(int months) {
     int m = month + months;
@@ -108,7 +115,8 @@ class ParsiDate {
   ParsiDate addYears(int years) => copyWith(year: year + years);
 
   /// Returns new [ParsiDate] with given fields replaced.
-  ParsiDate copyWith({int? year, int? month, int? day, int? hour, int? minute, int? second}) {
+  ParsiDate copyWith(
+      {int? year, int? month, int? day, int? hour, int? minute, int? second}) {
     return ParsiDate(
       year ?? this.year,
       month ?? this.month,
@@ -126,9 +134,11 @@ class ParsiDate {
 
   bool isBefore(ParsiDate other) => toDateTime().isBefore(other.toDateTime());
   bool isAfter(ParsiDate other) => toDateTime().isAfter(other.toDateTime());
-  bool isAtSameMomentAs(ParsiDate other) => toDateTime().isAtSameMomentAs(other.toDateTime());
+  bool isAtSameMomentAs(ParsiDate other) =>
+      toDateTime().isAtSameMomentAs(other.toDateTime());
 
-  bool isSameDay(ParsiDate other) => year == other.year && month == other.month && day == other.day;
+  bool isSameDay(ParsiDate other) =>
+      year == other.year && month == other.month && day == other.day;
 
   int compareTo(ParsiDate other) => toDateTime().compareTo(other.toDateTime());
 
@@ -165,7 +175,10 @@ class ParsiDate {
 
   @override
   bool operator ==(Object other) =>
-      other is ParsiDate && year == other.year && month == other.month && day == other.day;
+      other is ParsiDate &&
+      year == other.year &&
+      month == other.month &&
+      day == other.day;
 
   @override
   int get hashCode => Object.hash(year, month, day);
@@ -176,22 +189,54 @@ class ParsiDate {
   bool operator >=(ParsiDate other) => !isBefore(other);
 
   static const List<String> _persianMonthNames = [
-    'فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور',
-    'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند',
+    'فروردین',
+    'اردیبهشت',
+    'خرداد',
+    'تیر',
+    'مرداد',
+    'شهریور',
+    'مهر',
+    'آبان',
+    'آذر',
+    'دی',
+    'بهمن',
+    'اسفند',
   ];
 
   static const List<String> _persianMonthNamesEn = [
-    'Farvardin', 'Ordibehesht', 'Khordad', 'Tir', 'Mordad', 'Shahrivar',
-    'Mehr', 'Aban', 'Azar', 'Dey', 'Bahman', 'Esfand',
+    'Farvardin',
+    'Ordibehesht',
+    'Khordad',
+    'Tir',
+    'Mordad',
+    'Shahrivar',
+    'Mehr',
+    'Aban',
+    'Azar',
+    'Dey',
+    'Bahman',
+    'Esfand',
   ];
 
   static const List<String> _persianWeekDayNames = [
-    'شنبه', 'یک‌شنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه',
+    'شنبه',
+    'یک‌شنبه',
+    'دوشنبه',
+    'سه‌شنبه',
+    'چهارشنبه',
+    'پنج‌شنبه',
+    'جمعه',
   ];
 
   static const List<String> persianMonthNames = _persianMonthNames;
   static const List<String> persianWeekDayNames = _persianWeekDayNames;
   static const List<String> persianWeekDayNamesShort = [
-    'ش', 'ی', 'د', 'س', 'چ', 'پ', 'ج',
+    'ش',
+    'ی',
+    'د',
+    'س',
+    'چ',
+    'پ',
+    'ج',
   ];
 }
