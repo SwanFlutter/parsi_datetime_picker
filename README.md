@@ -38,7 +38,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  parsi_datetime_picker: ^0.0.1
+  parsi_datetime_picker: ^0.0.2
   flutter_localizations:
     sdk: flutter
 ```
