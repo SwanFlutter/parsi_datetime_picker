@@ -1,0 +1,27 @@
+name: parsi_datetime_picker
+description: "A comprehensive Persian(شاه کاوی) date and time picker for Flutter with Material and Cupertino styles, supporting Imperial Persian calendar."
+version: 0.0.1
+homepage: https://github.com/yourusername/parsi_datetime_picker
+repository: https://github.com/yourusername/parsi_datetime_picker
+issue_tracker: https://github.com/yourusername/parsi_datetime_picker/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  imperial_persian_date: ^0.0.2
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+
+flutter:
+
